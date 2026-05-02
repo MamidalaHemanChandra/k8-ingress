@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ingress-demo
+  name: app1
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: ingress-demo
+      app: app1
   template:
     metadata:
       labels:
-        app: ingress-demo
+        app: app1
     spec:
       containers:
       - name: app1
@@ -24,10 +24,9 @@ metadata:
   name: app1
 spec:
   selector:
-    app: ingress-demo
+    app: app1
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 80
 ---
 apiVersion: networking.k8s.io/v1
