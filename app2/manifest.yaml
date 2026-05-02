@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: app2
-        image: mamidalahemanchandra/app1:v1
+        image: mamidalahemanchandra/app2:v1
         ports:
         - containerPort: 80
 ---
@@ -43,7 +43,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: app2.heman.icu
+    - host: "app2.heman.icu"
       http:
         paths:
           - path: /
