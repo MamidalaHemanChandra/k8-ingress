@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: app2
-        image: nginx
+        image: mamidalahemanchandra/app1:v1
         ports:
         - containerPort: 80
 ---
