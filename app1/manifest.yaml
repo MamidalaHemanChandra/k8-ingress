@@ -28,28 +28,3 @@ spec:
   ports:
     - port: 80
       targetPort: 80
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: demo-ingress
-  annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: internet-facing
-    alb.ingress.kubernetes.io/target-type: ip
-    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:634758830486:certificate/ca134d2b-2333-4e3f-a6ed-071852d38978
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
-    alb.ingress.kubernetes.io/group.name: roboshop
-spec:
-  ingressClassName: alb
-  rules:
-    - host: "app1.heman.icu"
-      http:
-        paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: app1
-              port:
-                number: 80
