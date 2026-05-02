@@ -21,7 +21,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ingress-service
+  name: app1
 spec:
   selector:
     app: ingress-demo
@@ -51,6 +51,6 @@ spec:
           pathType: Prefix
           backend:
             service:
-              name: ingress-service
+              name: app1
               port:
                 number: 80
